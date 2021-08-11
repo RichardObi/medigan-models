@@ -1,10 +1,11 @@
 {
 	"2d29d505-9fb7-4c4d-b81f-47976e2c7dbf": {
 		"execution": {
-			"model_link": "https://zenodo.org/record/4914384/files/DCGAN.pt?download=1",
 			"package_name": "DCGAN",
+			"package_link" : "http://localhost:8888/DCGAN.zip",
 			"model_name": "DCGAN",
 			"extension": ".pt",
+			"image_size": 128,
 			"dependencies": ["numpy", "Path", "Union", "pyyaml", "torch", "opencv-contrib-python-headless"],
 			"internal_libs": ["base_discriminator.py", "base_generator.py"],
 			"generator": {
@@ -121,11 +122,12 @@
 	},
 	"8f933c5e-72fc-461a-a5cb-73cbe65af6fc": {
 		"execution": {
-			"model_link": "https://zenodo.org/record/5044871/files/malign_mass_gen?download=1",
 			"package_name": "MALIGN_DCGAN",
-			"model_name": "malign_mass_gen_DCGAN",
+			"package_link" : "http://localhost:8888/MALIGN_DCGAN.zip",
+			"model_name": "malign_mass_gen",
 			"extension": "",
-			"dependencies": ["numpy", "Path", "Union", "pyyaml", "torch", "opencv-contrib-python-headless", "skimage"],
+			"image_size": 128,
+			"dependencies": ["numpy", "torch", "opencv-contrib-python-headless"],
 			"internal_libs": ["base_discriminator.py", "base_generator.py"],
 			"generator": {
 				"base": "dcgan_generator.py",
@@ -140,7 +142,7 @@
 			},
 			"discriminator": {
 				"base": "base_discriminator.py",
-				"name": "Discrimanor",
+				"name": "Discriminator",
 				"args": {
 					"nc": 1,
 					"ndf": 64,
