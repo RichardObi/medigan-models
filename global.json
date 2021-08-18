@@ -1,244 +1,317 @@
 {
-	"2d29d505-9fb7-4c4d-b81f-47976e2c7dbf": {
-		"execution": {
-			"package_name": "DCGAN",
-			"package_link" : "https://zenodo.org/record/5187715/files/DCGAN.zip?download=1",
-			"model_name": "DCGAN",
-			"extension": ".pt",
-			"image_size": 128,
-			"dependencies": ["numpy", "Path", "Union", "pyyaml", "torch", "opencv-contrib-python-headless"],
-			"internal_libs": ["base_discriminator.py", "base_generator.py"],
-			"generator": {
-				"base": "dcgan_generator.py",
-				"name": "generate_GAN_images",
-				"args": {
-					"nc": 1,
-					"ndf": 64,
-					"ngf": 64,
-					"ngpu": 1,
-					"nz": 100
-				}
-			},
-			"discriminator": {
-				"base": "base_discriminator.py",
-				"name": "Discriminator",
-				"args": {
-					"nc": 1,
-					"ndf": 64,
-					"ngf": 64,
-					"ngpu": 1,
-					"nz": 100
-				}
-			}
-		},
-		"selection": {
-			"performance": {
-				"SSIM": null,
-				"MSE": null,
-				"NSME": null,
-				"PSNR": null,
-				"IS": null,
-				"FID": null,
-				"turing_test": null,
-				"downstream_task": {
-					"CLF": {
-						"trained on fake": {
-							"accuracy": null,
-							"precision": null,
-							"recall": null,
-							"f1": null,
-							"specificity": null,
-							"AUROC": null,
-							"AUPRC": null
-						},
-						"trained on real and fake": {},
-						"trained on real": {},
-						"SEG": {
-							"trained on fake": {
-								"dice": null,
-								"jaccard": null,
-								"accuracy": null,
-								"precision": null,
-								"recall": null,
-								"f1": null
-							},
-							"trained on real and fake": {},
-							"trained on real": {}
-						}
-					}
-				}
-			},
-			"use_cases": [
-				"classification",
-				"detection",
-				"in-silico trial"
-			],
-			"organ": "breast",
-			"modalities": {
-				"MMG": [
-					"full-field digital"
-				],
-				"MRI": null,
-				"CT": null
-			},
-			"vendors": [
-				"unknown"
-			],
-			"centres": [
-				"unknown"
-			],
-			"function": [
-				"noise to image"
-			],
-			"condition": [
-				null
-			],
-			"trained_on": [
-				"INbreast"
-			],
-			"augmentations": [
-				"crop and resize",
-				"horizontal flip",
-				"vertical flip"
-			],
-			"generates": [
-				"calcification_roi"
-			],
-			"pixel_height": 128,
-			"pixel_width": 128,
-			"type": "DCGAN"
-		},
-		"description": {
-			"provided_date": "12th May 2021",
-			"trained_date": "May 2021",
-			"provided_after_epoch": 300,
-			"privacy_preservation": null,
-			"dataset_type": "public",
-			"license": null,
-			"version": "0.0.1",
-			"publication": null,
-			"comments": "kernel size=6 used in discriminator"
-		}
-	},
-	"8f933c5e-72fc-461a-a5cb-73cbe65af6fc": {
-		"execution": {
-			"package_name": "MALIGN_DCGAN",
-			"package_link" : "https://zenodo.org/record/5188558/files/MALIGN_DCGAN.zip?download=1",
-			"model_name": "malign_mass_gen",
-			"extension": "",
-			"image_size": 128,
-			"dependencies": ["numpy", "torch", "opencv-contrib-python-headless"],
-			"internal_libs": ["base_discriminator.py", "base_generator.py"],
-			"generator": {
-				"base": "dcgan_generator.py",
-				"name": "generate_GAN_images",
-				"args": {
-					"nc": 1,
-					"ndf": 64,
-					"ngf": 64,
-					"ngpu": 1,
-					"nz": 100
-				}
-			},
-			"discriminator": {
-				"base": "base_discriminator.py",
-				"name": "Discriminator",
-				"args": {
-					"nc": 1,
-					"ndf": 64,
-					"ngf": 64,
-					"ngpu": 1,
-					"nz": 100
-				}
-			}
-		},
-		"selection": {
-			"performance": {
-				"SSIM": null,
-				"MSE": null,
-				"NSME": null,
-				"PSNR": null,
-				"IS": null,
-				"FID": null,
-				"turing_test": null,
-				"downstream_task": {
-					"CLF": {
-						"trained on fake": {
-							"accuracy": null,
-							"precision": null,
-							"recall": null,
-							"f1": null,
-							"specificity": null,
-							"AUROC": null,
-							"AUPRC": null
-						},
-						"trained on real and fake": {},
-						"trained on real": {},
-						"SEG": {
-							"trained on fake": {
-								"dice": null,
-								"jaccard": null,
-								"accuracy": null,
-								"precision": null,
-								"recall": null,
-								"f1": null
-							},
-							"trained on real and fake": {},
-							"trained on real": {}
-						}
-					}
-				}
-			},
-			"use_cases": [
-				"classification",
-				"detection",
-				"in-silico trial"
-			],
-			"organ": "breast",
-			"modalities": {
-				"MMG": [
-					"full-field digital"
-				],
-				"MRI": null,
-				"CT": null
-			},
-			"vendors": [
-				"unknown"
-			],
-			"centres": [
-				"unknown"
-			],
-			"function": [
-				"noise to image"
-			],
-			"condition": [
-				null
-			],
-			"trained_on": [
-				"INbreast"
-			],
-			"augmentations": [
-				"crop and resize",
-				"horizontal flip",
-				"vertical flip"
-			],
-			"generates": [
-				"calcification_roi"
-			],
-			"pixel_height": 128,
-			"pixel_width": 128,
-			"type": "DCGAN"
-		},
-		"description": {
-			"provided_date": "12th May 2021",
-			"trained_date": "May 2021",
-			"provided_after_epoch": 300,
-			"privacy_preservation": null,
-			"dataset_type": "public",
-			"license": null,
-			"version": "0.0.1",
-			"publication": null,
-			"comments": "kernel size=6 used in discriminator"
-		}
-	}
+  "2d29d505-9fb7-4c4d-b81f-47976e2c7dbf": {
+    "execution": {
+      "package_name": "DCGAN",
+      "package_link": "https://zenodo.org/record/5187715/files/DCGAN.zip?download=1",
+      "model_name": "DCGAN",
+      "extension": ".pt",
+      "image_size": 128,
+      "dependencies": [
+        "numpy",
+        "Path",
+        "Union",
+        "pyyaml",
+        "torch",
+        "opencv-contrib-python-headless"
+      ],
+      "internal_libs": [
+        "base_discriminator.py",
+        "base_generator.py"
+      ],
+      "generator": {
+        "base": "dcgan_generator.py",
+        "name": "generate_GAN_images",
+        "args": {
+          "nc": 1,
+          "ndf": 64,
+          "ngf": 64,
+          "ngpu": 1,
+          "nz": 100
+        }
+      },
+      "discriminator": {
+        "base": "base_discriminator.py",
+        "name": "Discriminator",
+        "args": {
+          "nc": 1,
+          "ndf": 64,
+          "ngf": 64,
+          "ngpu": 1,
+          "nz": 100
+        }
+      }
+    },
+    "selection": {
+      "performance": {
+        "SSIM": null,
+        "MSE": null,
+        "NSME": null,
+        "PSNR": null,
+        "IS": null,
+        "FID": null,
+        "turing_test": null,
+        "downstream_task": {
+          "CLF": {
+            "trained on fake": {
+              "accuracy": null,
+              "precision": null,
+              "recall": null,
+              "f1": null,
+              "specificity": null,
+              "AUROC": null,
+              "AUPRC": null
+            },
+            "trained on real and fake": {},
+            "trained on real": {}
+          },
+          "SEG": {
+            "trained on fake": {
+              "dice": null,
+              "jaccard": null,
+              "accuracy": null,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "trained on real and fake": {},
+            "trained on real": {}
+          }
+        }
+      },
+      "use_cases": [
+        "classification",
+        "detection",
+        "in-silico trial"
+      ],
+      "organ": [
+        "breast",
+        "breasts",
+        "chest"
+      ],
+      "modality": [
+        "MMG",
+        "Mammography",
+        "Mammogram",
+        "full-field digital",
+        "full-field digital MMG",
+        "full-field MMG",
+        "full-field Mammography",
+        "digital Mammography",
+        "digital MMG",
+        "x-ray mammography"
+      ],
+      "vendors": [],
+      "centres": [],
+      "function": [
+        "noise to image",
+        "image generation",
+        "unconditional generation",
+        "data augmentation"
+      ],
+      "condition": [],
+      "dataset": [
+        "INbreast"
+      ],
+      "augmentations": [
+        "crop and resize",
+        "horizontal flip",
+        "vertical flip"
+      ],
+      "generates": [
+        "calcification",
+        "calcifications",
+        "calcification roi",
+        "calcification ROI",
+        "calcification images",
+        "calcification region of interest"
+      ],
+      "pixel_height": 128,
+      "pixel_width": 128,
+      "type": "DCGAN",
+      "license": "MIT",
+      "dataset_type": "public",
+      "privacy_preservation": null,
+      "tags": [
+        "Mammogram",
+        "Mammography",
+        "Digital Mammography",
+        "Full field Mammography",
+        "Full-field Mammography",
+        "128x128",
+        "128 x 128",
+        "MammoGANs",
+        "Microcalcification",
+        "Microcalcifications"
+      ],
+      "year": "2021"
+    },
+    "description": {
+      "title": "DCGAN Model for Mammogram Calcification Region of Interest Generation (Trained on INbreast)",
+      "provided_date": "12th May 2021",
+      "trained_date": "May 2021",
+      "provided_after_epoch": 300,
+      "version": "0.0.1",
+      "publication": null,
+      "doi": [
+        "10.5281/zenodo.5187715"
+      ],
+      "comment": "A deep convolutional generative adversarial network (DCGAN) that generates regions of interest (ROI) of mammograms containing benign and/or malignant calcifications. Pixel dimensions are 128x128. The DCGAN was trained on ROIs from the INbreast dataset (Moreira et al, 2012). The uploaded ZIP file contains the files dcgan.pt (model weights), __init__.py (image generation method and utils), a README.md, and the GAN model architecture (in pytorch) below the /src folder. Kernel size=6 used in DCGAN discriminator."
+    }
+  },
+  "8f933c5e-72fc-461a-a5cb-73cbe65af6fc": {
+    "execution": {
+      "package_name": "MALIGN_DCGAN",
+      "package_link": "https://zenodo.org/record/5188558/files/MALIGN_DCGAN.zip?download=1",
+      "model_name": "malign_mass_gen",
+      "extension": "",
+      "image_size": 128,
+      "dependencies": [
+        "numpy",
+        "torch",
+        "opencv-contrib-python-headless"
+      ],
+      "internal_libs": [
+        "base_discriminator.py",
+        "base_generator.py"
+      ],
+      "generator": {
+        "base": "dcgan_generator.py",
+        "name": "generate_GAN_images",
+        "args": {
+          "nc": 1,
+          "ndf": 64,
+          "ngf": 64,
+          "ngpu": 1,
+          "nz": 100
+        }
+      },
+      "discriminator": {
+        "base": "base_discriminator.py",
+        "name": "Discriminator",
+        "args": {
+          "nc": 1,
+          "ndf": 64,
+          "ngf": 64,
+          "ngpu": 1,
+          "nz": 100
+        }
+      }
+    },
+    "selection": {
+      "performance": {
+        "SSIM": null,
+        "MSE": null,
+        "NSME": null,
+        "PSNR": null,
+        "IS": null,
+        "FID": null,
+        "turing_test": null,
+        "downstream_task": {
+          "CLF": {
+            "trained on fake": {
+              "accuracy": null,
+              "precision": null,
+              "recall": null,
+              "f1": null,
+              "specificity": null,
+              "AUROC": null,
+              "AUPRC": null
+            },
+            "trained on real and fake": {},
+            "trained on real": {}
+        },
+            "SEG": {
+              "trained on fake": {
+                "dice": null,
+                "jaccard": null,
+                "accuracy": null,
+                "precision": null,
+                "recall": null,
+                "f1": null
+              },
+              "trained on real and fake": {},
+              "trained on real": {}
+            }
+          }
+      },
+      "use_cases": [
+        "classification",
+        "detection",
+        "in-silico trial"
+      ],
+      "organ": [
+        "breast",
+        "breasts",
+        "chest"
+      ],
+      "modality": [
+        "MMG",
+        "Mammography",
+        "Mammogram",
+        "full-field digital",
+        "full-field digital MMG",
+        "full-field MMG",
+        "full-field Mammography",
+        "digital Mammography",
+        "digital MMG",
+        "x-ray mammography"
+      ],
+      "vendors": [],
+      "centres": [],
+      "function": [
+        "noise to image",
+        "image generation",
+        "unconditional generation",
+        "data augmentation"
+      ],
+      "condition": [],
+      "dataset": [
+        "Optimam"
+      ],
+      "augmentations": [],
+      "generates": [
+        "mass",
+        "masses",
+        "breast masses",
+        "mass rois",
+        "mass ROIs",
+        "mass images",
+        "breast mass ROIs"
+      ],
+      "pixel_height": 128,
+      "pixel_width": 128,
+      "type": "DCGAN",
+      "dataset_type": "public",
+      "license": "MIT",
+      "privacy_preservation": null,
+      "year": "2019",
+      "tags": [
+        "Mammogram",
+        "Mammography",
+        "Digital Mammography",
+        "Full field Mammography",
+        "Full-field Mammography",
+        "128 x 128",
+        "128x128",
+        "MammoGANs",
+        "Nodule",
+        "Nodules",
+        "Breast mass"
+      ]
+    },
+    "description": {
+      "title": "DCGAN Model for Mammogram Mass Region of Interest Generation (Trained on OPTIMAM)",
+      "provided_date": null,
+      "trained_date": null,
+      "provided_after_epoch": null,
+      "version": null,
+      "publication": null,
+      "doi": [
+        "10.5281/zenodo.5188558",
+        "10.1117/12.2543506",
+        "10.1117/12.2560473"
+      ],
+      "comment": "A deep convolutional generative adversarial network (DCGAN) that generates regions of interest (ROI) of mammograms containing benign and/or malignant masses. Pixel dimensions are 128x128. The DCGAN was trained on ROIs from the Optimam dataset (Halling-Brown et al, 2014). The uploaded ZIP file contains the files malign_mass_gen (model weights), and __init__.py (image generation method and pytorch GAN model architecture). Kernel size=6 used in DCGAN discriminator."
+    }
+  }
 }
