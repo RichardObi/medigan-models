@@ -5,7 +5,9 @@
       "package_link": "https://zenodo.org/record/5187715/files/DCGAN.zip?download=1",
       "model_name": "DCGAN",
       "extension": ".pt",
-      "image_size": 128,
+      "image_size": [
+        128
+      ],
       "dependencies": [
         "numpy",
         "Path",
@@ -18,9 +20,22 @@
         "base_discriminator.py",
         "base_generator.py"
       ],
+      "generate_method": {
+        "name": "generate_GAN_images",
+        "args": {
+          "base": [
+            "model_file",
+            "num_samples",
+            "output_path"
+          ],
+          "custom": {
+              "image_size": 128
+          }
+        }
+      },
       "generator": {
         "base": "dcgan_generator.py",
-        "name": "generate_GAN_images",
+        "name": "Generator",
         "args": {
           "nc": 1,
           "ndf": 64,
@@ -174,9 +189,22 @@
         "base_discriminator.py",
         "base_generator.py"
       ],
+      "generate_method": {
+        "name": "generate_GAN_images",
+        "args": {
+          "base": [
+            "model_file",
+            "num_samples",
+            "output_path"
+          ],
+          "custom": {
+              "image_size": 128
+          }
+        }
+      },
       "generator": {
         "base": "dcgan_generator.py",
-        "name": "generate_GAN_images",
+        "name": "Generator",
         "args": {
           "nc": 1,
           "ndf": 64,
@@ -219,20 +247,20 @@
             },
             "trained on real and fake": {},
             "trained on real": {}
-        },
-            "SEG": {
-              "trained on fake": {
-                "dice": null,
-                "jaccard": null,
-                "accuracy": null,
-                "precision": null,
-                "recall": null,
-                "f1": null
-              },
-              "trained on real and fake": {},
-              "trained on real": {}
-            }
+          },
+          "SEG": {
+            "trained on fake": {
+              "dice": null,
+              "jaccard": null,
+              "accuracy": null,
+              "precision": null,
+              "recall": null,
+              "f1": null
+            },
+            "trained on real and fake": {},
+            "trained on real": {}
           }
+        }
       },
       "use_cases": [
         "classification",
