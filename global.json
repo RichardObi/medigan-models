@@ -16,10 +16,6 @@
 				"torch",
 				"opencv-contrib-python-headless"
 			],
-			"internal_libs": [
-				"base_discriminator.py",
-				"base_generator.py"
-			],
 			"generate_method": {
 				"name": "generate_GAN_images",
 				"args": {
