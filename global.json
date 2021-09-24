@@ -2,7 +2,7 @@
   "2d29d505-9fb7-4c4d-b81f-47976e2c7dbf": {
     "execution": {
       "package_name": "DCGAN",
-      "package_link": "https://zenodo.org/record/5187715/files/DCGAN.zip?download=1",
+      "package_link": "https://zenodo.org/record/5526998/files/DCGAN.zip?download=1",
       "model_name": "DCGAN",
       "extension": ".pt",
       "image_size": [
@@ -149,7 +149,7 @@
   "8f933c5e-72fc-461a-a5cb-73cbe65af6fc": {
     "execution": {
       "package_name": "MALIGN_DCGAN",
-      "package_link": "https://zenodo.org/record/5188558/files/MALIGN_DCGAN.zip?download=1",
+      "package_link": "https://zenodo.org/record/5189243/files/MALIGN_DCGAN.zip?download=1",
       "model_name": "malign_mass_gen",
       "extension": "",
       "image_size": [
