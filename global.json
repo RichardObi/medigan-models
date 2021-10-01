@@ -141,7 +141,7 @@
       "version": "0.0.1",
       "publication": null,
       "doi": [
-        "10.5281/zenodo.5187715"
+        "10.5281/zenodo.5187714"
       ],
       "comment": "A deep convolutional generative adversarial network (DCGAN) that generates regions of interest (ROI) of mammograms containing benign and/or malignant calcifications. Pixel dimensions are 128x128. The DCGAN was trained on ROIs from the INbreast dataset (Moreira et al, 2012). The uploaded ZIP file contains the files dcgan.pt (model weights), __init__.py (image generation method and utils), a README.md, and the GAN model architecture (in pytorch) below the /src folder. Kernel size=6 used in DCGAN discriminator."
     }
@@ -280,7 +280,7 @@
       "version": null,
       "publication": null,
       "doi": [
-        "10.5281/zenodo.5188558",
+        "10.5281/zenodo.5188557",
         "10.1117/12.2543506",
         "10.1117/12.2560473"
       ],
