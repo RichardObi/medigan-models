@@ -286,5 +286,123 @@
       ],
       "comment": "A deep convolutional generative adversarial network (DCGAN) that generates regions of interest (ROI) of mammograms containing benign and/or malignant masses. Pixel dimensions are 128x128. The DCGAN was trained on ROIs from the Optimam dataset (Halling-Brown et al, 2014). The uploaded ZIP file contains the files malign_mass_gen (model weights), and __init__.py (image generation method and pytorch GAN model architecture). Kernel size=6 used in DCGAN discriminator."
     }
+  },
+  "00003_CYCLEGAN_MMG_DENSITY_FULL": {
+    "execution": {
+      "package_name": "CycleGAN_high_density",
+      "package_link": "https://zenodo.org/record/5547264/files/CycleGAN_high_density.zip?download=1",
+      "model_name": "CycleGAN_high_density",
+      "extension": ".pth",
+      "image_size": [
+        1332, 800
+      ],
+      "dependencies": [
+        "numpy",
+        "Path",
+        "Union",
+        "pyyaml",
+        "opencv-contrib-python-headless",
+        "torch",
+        "torchvision",
+        "dominate",
+        "visdom",
+        "Pillow"
+      ],
+      "generate_method": {
+        "name": "generate_GAN_images",
+        "args": {
+          "base": [
+            "model_file",
+            "output_path",
+            "save_images",
+            "num_samples"
+          ],
+          "custom": {
+            "translate_all_images": false,
+            "input_path": "00003_CYCLEGAN_MMG_DENSITY_FULL/CycleGAN_high_density/images",
+            "image_size": [1332, 800],
+            "gpu_id": 0
+          }
+        }
+      }
+    },
+    "selection": {
+      "performance": {},
+      "use_cases": [
+        "classification",
+        "detection",
+        "domain-translation"
+      ],
+      "organ": [
+        "breast",
+        "breasts",
+        "chest"
+      ],
+      "modality": [
+        "MMG",
+        "Mammography",
+        "Mammogram",
+        "full-field digital",
+        "full-field digital MMG",
+        "full-field MMG",
+        "full-field Mammography",
+        "digital Mammography",
+        "digital MMG",
+        "x-ray mammography"
+      ],
+      "vendors": [],
+      "centres": [],
+      "function": [
+        "image to image",
+        "image generation",
+        "data augmentation"
+      ],
+      "condition": [],
+      "dataset": [
+        "BCDR"
+      ],
+      "augmentations": [
+        "resize"
+      ],
+      "generates": [
+        "full images",
+        "mammograms",
+        "full-field digital mammograms"
+      ],
+      "height": 1332,
+      "width": 800,
+      "depth": null,
+      "type": "CycleGAN",
+      "license": "BSD",
+      "dataset_type": "public",
+      "privacy_preservation": null,
+      "tags": [
+        "Mammogram",
+        "Mammography",
+        "Digital Mammography",
+        "Full field Mammography",
+        "Full-field Mammography",
+        "CycleGANs",
+        "CycleGAN",
+        "Density",
+        "Breast Density",
+        "High Density",
+        "Low Density",
+        "ACR"
+      ],
+      "year": "2021"
+    },
+    "description": {
+      "title": "CycleGAN Model for Low-to-High Brest Density Mammograms Translation (Trained on BCDR)",
+      "provided_date": "12th Sep 2021",
+      "trained_date": "Sep 2021",
+      "provided_after_epoch": 100,
+      "version": "0.0.1",
+      "publication": null,
+      "doi": [
+        "10.5281/zenodo.5547263"
+      ],
+      "comment": "A cycle generative adversarial network (CycleGAN) that generates mammograms with high breast density from an original mammogram e.g. with low-breast density. The CycleGAN was trained using normal (without pathologies) digital mammograms from BCDR dataset (Lopez, M. G., et al. 2012). The uploaded ZIP file contains the files CycleGAN_high_density.pth (model weights), __init__.py (image generation method and utils) and the GAN model architecture (in pytorch) below the /src folder."
+    }
   }
 }
