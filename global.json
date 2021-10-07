@@ -319,7 +319,7 @@
           ],
           "custom": {
             "translate_all_images": false,
-            "input_path": "00003_CYCLEGAN_MMG_DENSITY_FULL/CycleGAN_high_density/images",
+            "input_path": "00003_CYCLEGAN_MMG_DENSITY_FULL/images",
             "image_size": [1332, 800],
             "gpu_id": 0
           }
