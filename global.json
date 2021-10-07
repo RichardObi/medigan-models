@@ -290,7 +290,7 @@
   "00003_CYCLEGAN_MMG_DENSITY_FULL": {
     "execution": {
       "package_name": "CycleGAN_high_density",
-      "package_link": "https://zenodo.org/record/5547264/files/CycleGAN_high_density.zip?download=1",
+      "package_link": "https://zenodo.org/record/5555010/files/CycleGAN_high_density.zip?download=1",
       "model_name": "CycleGAN_high_density",
       "extension": ".pth",
       "image_size": [
