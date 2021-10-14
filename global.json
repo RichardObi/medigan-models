@@ -149,7 +149,7 @@
   "00002_DCGAN_MMG_MASS_ROI": {
     "execution": {
       "package_name": "MALIGN_DCGAN",
-      "package_link": "https://zenodo.org/record/5189243/files/MALIGN_DCGAN.zip?download=1",
+      "package_link": "https://zenodo.org/record/5548158/files/MALIGN_DCGAN.zip?download=1",
       "model_name": "malign_mass_gen",
       "extension": "",
       "image_size": [
