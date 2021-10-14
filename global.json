@@ -408,7 +408,7 @@
   "00004_PIX2PIX_MASKTOMASS_BREAST_MG_SYNTHESIS": {
     "execution": {
       "package_name": "Pix2Pix_MaskToMass_breastMG_synthesis",
-      "package_link": "https://zenodo.org/record/5554951/files/Pix2Pix_MaskToMass_breastMG_synthesis.zip?download=1",
+      "package_link": "https://zenodo.org/record/5569573/files/Pix2Pix_MaskToMass_breastMG_synthesis.zip?download=1",
       "model_name": "pix2pix_mask_to_mass_model",
       "extension": ".pth",
       "image_size": [
