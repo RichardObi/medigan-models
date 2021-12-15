@@ -1,7 +1,7 @@
 {
   "00005_DCGAN_MMG_MASS_ROI": {
     "execution": {
-      "package_name": "DCGAN",
+      "package_name": "MMG_MASS_BCDR_DCGAN",
       "package_link": "ADD_ZENODO_OR_LOCAL_URL_HERE",
       "model_name": "500",
       "extension": ".pt",
@@ -43,7 +43,7 @@
               "f1": 0.9721,
               "AUROC": 0.9596,
               "AUPRC": 0.9908
-            },
+            }
           }
         }
       },
