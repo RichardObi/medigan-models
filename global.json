@@ -517,7 +517,7 @@
       "version": "0.0.1",
       "publication": null,
       "doi": [
-        "10.5281/zenodo.5554950"
+        "10.5281/zenodo.5863095"
       ],
       "comment": "Generates synthetic patches given a random mask tiled with texture patches extracted from real images. The texture patches should be extracted from within the mass an outside the mass of a real image. Hence, some real ROIs are required to start with and its ideal for data augmentation purposes for mass segmentation."
     }
