@@ -525,7 +525,7 @@
   "00005_GAN_inpainting_CT_spine_ROI": {
     "execution": {
       "package_name": "bone-cement-injection-planning2",
-      "package_link": "https://zenodo.org/record/5838223/files/bone-cement-injection-planning2.zip?download=1",
+      "package_link": "https://zenodo.org/record/5863095/files/bone-cement-injection-planning2.zip?download=1",
       "model_name": "BICEPS",
       "extension": ".pt",
       "image_size": [
