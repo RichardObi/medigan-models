@@ -522,11 +522,11 @@
       "comment": "Generates synthetic patches given a random mask tiled with texture patches extracted from real images. The texture patches should be extracted from within the mass an outside the mass of a real image. Hence, some real ROIs are required to start with and its ideal for data augmentation purposes for mass segmentation."
     }
   }, 
-  "00005_GAN_inpainting_CT_spine_ROI": {
+   "00005_DCGAN_CT_spine_inpaint": {
     "execution": {
       "package_name": "bone-cement-injection-planning2",
-      "package_link": "https://zenodo.org/record/5863356/files/bone-cement-injection-planning2.zip?download=1",
-      "model_name": "BICEPS",
+      "package_link": "https://zenodo.org/record/5898666/files/bone-cement-injection-planning2.zip?download=1",
+      "model_name": "inpaint_modelCor",
       "extension": ".pt",
       "image_size": [
         128, 128
@@ -541,19 +541,23 @@
         "nibabel",
         "opencv-python",
         "scikit-image",
-	"scikit-learn",
-	"nilearn",
-	"pandas",
-	"matplotlib"
+        "scikit-learn",
+        "nilearn",
+        "pandas",
+        "matplotlib"
       ],
       "generate_method": {
-        "name": "generate_GAN_images",
+        "name": "generate",
         "args": {
           "base": [
-            "patient_dir",
-            "fracture"
-          ],
+                    "model_file",
+                    "num_samples",
+                    "output_path",
+                    "save_images"          ],
           "custom": {
+              "save_intermediate_outputs": "False",
+              "patient_dir": "00005_DCGAN_CT_spine_inpaint/src/data/dataset-verse19test/rawdata/",
+              "fracture": 22
           }
         }
       }
@@ -588,7 +592,7 @@
         "regions of interest",
         "ROI",
         "CT",
-	"measures",
+	       "measures",
         "inpainted image"
       ],
       "height": 128,
@@ -609,16 +613,16 @@
       "year": "2021"
     },
     "description": {
-      "title": "Patient-specific virtual spine straightening and vertebra inpainting: An automatic framework for osteoplasty plannings",
-      "provided_date": null,
-      "trained_date": null,
-      "provided_after_epoch": null,
-      "version": "0.0.1",
-      "publication": null,
-      "doi": [
-        "10.5281/zenodo.5838222"
-      ],
-      "comment": "BICEPS takes a CT image of a patient with one or more Vertebral Compression Fractures and generates an estimation of the healthy state of the patients spine to enable treatment planning. The uploaded ZIP file contains the model weights,the __init__.py (image generation method and utils), a README.md, and the GAN model architecture (in pytorch) below the /src folder."
+        "title": "Patient-specific virtual spine straightening and vertebra inpainting: An automatic framework for osteoplasty plannings",
+        "provided_date": null,
+        "trained_date": null,
+        "provided_after_epoch": null,
+        "version": "0.0.1",
+        "publication": null,
+        "doi": [
+            "10.5281/zenodo.5838222"
+        ],
+        "comment": "BICEPS takes a CT image of a patient with one or more Vertebral Compression Fractures and generates an estimation of the healthy state of the patients spine to enable treatment planning. The uploaded ZIP file contains the model weights,the __init__.py (image generation method and utils), a README.md, and the GAN model architecture (in pytorch) below the /src folder."
     }
   }
 }
