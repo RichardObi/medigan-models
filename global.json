@@ -294,7 +294,8 @@
       "model_name": "CycleGAN_high_density",
       "extension": ".pth",
       "image_size": [
-        1332, 800
+        1332,
+        800
       ],
       "dependencies": [
         "numpy",
@@ -320,7 +321,10 @@
           "custom": {
             "translate_all_images": false,
             "input_path": "00003_CYCLEGAN_MMG_DENSITY_FULL/images",
-            "image_size": [1332, 800],
+            "image_size": [
+              1332,
+              800
+            ],
             "gpu_id": 0
           }
         }
@@ -412,7 +416,8 @@
       "model_name": "pix2pix_mask_to_mass_model",
       "extension": ".pth",
       "image_size": [
-        256, 256
+        256,
+        256
       ],
       "dependencies": [
         "numpy",
@@ -424,7 +429,9 @@
         "torchvision",
         "dominate",
         "visdom",
-        "Pillow"
+        "Pillow",
+        "imageio",
+        "scikit-image"
       ],
       "generate_method": {
         "name": "generate_GAN_images",
@@ -437,9 +444,18 @@
           ],
           "custom": {
             "input_path": "00004_PIX2PIX_MASKTOMASS_BREAST_MG_SYNTHESIS/images",
-            "image_size": [256, 256],
-            "patch_size": [32, 32],
-            "shapes": ["oval", "lobulated"],
+            "image_size": [
+              256,
+              256
+            ],
+            "patch_size": [
+              32,
+              32
+            ],
+            "shapes": [
+              "oval",
+              "lobulated"
+            ],
             "ssim_threshold": 0.20,
             "gpu_id": 0
           }
@@ -521,15 +537,278 @@
       ],
       "comment": "Generates synthetic patches given a random mask tiled with texture patches extracted from real images. The texture patches should be extracted from within the mass an outside the mass of a real image. Hence, some real ROIs are required to start with and its ideal for data augmentation purposes for mass segmentation."
     }
-  }, 
-   "00005_DCGAN_CT_spine_inpaint": {
+  },
+  "00005_DCGAN_MMG_MASS_ROI": {
+    "execution": {
+      "package_name": "DCGAN",
+      "package_link": "https://zenodo.org/record/6555189/files/DCGAN_MMG_MASSES_BCDR_IWBI22.zip?download=1",
+      "model_name": "500",
+      "extension": ".pt",
+      "image_size": [
+        128,
+        128
+      ],
+      "dependencies": [
+        "numpy",
+        "torch",
+        "opencv-contrib-python-headless"
+      ],
+      "generate_method": {
+        "name": "generate",
+        "args": {
+          "base": [
+            "model_file",
+            "num_samples",
+            "output_path",
+            "save_images"
+          ],
+          "custom": {}
+        }
+      }
+    },
+    "selection": {
+      "performance": {
+        "SSIM": null,
+        "MSE": null,
+        "NSME": null,
+        "PSNR": null,
+        "IS": null,
+        "FID": null,
+        "turing_test": null,
+        "downstream_task": {
+          "CLF": {
+            "trained_on_fake": {
+              "accuracy": 0.9528,
+              "f1": 0.9721,
+              "AUROC": 0.9596,
+              "AUPRC": 0.9908
+            }
+          }
+        }
+      },
+      "use_cases": [
+        "classification"
+      ],
+      "organ": [
+        "breast",
+        "breasts",
+        "chest"
+      ],
+      "modality": [
+        "MMG",
+        "Mammography",
+        "Mammogram",
+        "full-field digital",
+        "full-field digital MMG",
+        "full-field MMG",
+        "full-field Mammography",
+        "digital Mammography",
+        "digital MMG",
+        "x-ray mammography"
+      ],
+      "vendors": [],
+      "centres": [],
+      "function": [
+        "noise to image",
+        "image generation",
+        "unconditional generation",
+        "data augmentation"
+      ],
+      "condition": [],
+      "dataset": [
+        "BCDR"
+      ],
+      "augmentations": [
+        "horizontal flip",
+        "vertical flip"
+      ],
+      "generates": [
+        "mass",
+        "masses",
+        "mass roi",
+        "mass ROI",
+        "mass images",
+        "mass region of interest",
+        "nodule",
+        "nodule",
+        "nodule roi",
+        "nodule ROI",
+        "nodule images",
+        "nodule region of interest"
+      ],
+      "height": 128,
+      "width": 128,
+      "depth": null,
+      "type": "DCGAN",
+      "license": "MIT",
+      "dataset_type": "public",
+      "privacy_preservation": null,
+      "tags": [
+        "Breast",
+        "Mammogram",
+        "Mammography",
+        "Digital Mammography",
+        "Full field Mammography",
+        "Full-field Mammography",
+        "128x128",
+        "128 x 128",
+        "MammoGANs",
+        "Masses",
+        "Nodules"
+      ],
+      "year": "2021"
+    },
+    "description": {
+      "title": "DCGAN Model for Mammogram MASS Patch Generation (Trained on BCDR)",
+      "provided_date": "Dec 2021",
+      "trained_date": "Nov 2021",
+      "provided_after_epoch": 500,
+      "version": "0.0.1",
+      "publication": "IWBI2022",
+      "doi": ["10.48550/arXiv.2203.04961"],
+      "comment": "A deep convolutional generative adversarial network (DCGAN) that generates mass patches of mammograms. Pixel dimensions are 128x128. The DCGAN was trained on MMG patches from the BCDR dataset (Lopez et al, 2012). The uploaded ZIP file contains the files 500.pt (model weight), __init__.py (image generation method and utils), a requirements.txt, and the GAN model architecture (in pytorch) below the /src folder."
+    }
+  },
+  "00006_WGANGP_MMG_MASS_ROI": {
+    "execution": {
+      "package_name": "WGANGP_MMG_MASSES_BCDR_IWBI22",
+      "package_link": "https://zenodo.org/record/6554714/files/WGANGP_MMG_MASSES_BCDR_IWBI22.zip?download=1",
+      "model_name": "10000",
+      "extension": ".pt",
+      "image_size": [
+        128,
+        128
+      ],
+      "dependencies": [
+        "numpy",
+        "torch",
+        "opencv-contrib-python-headless"
+      ],
+      "generate_method": {
+        "name": "generate",
+        "args": {
+          "base": [
+            "model_file",
+            "num_samples",
+            "output_path",
+            "save_images"
+          ],
+          "custom": {}
+        }
+      }
+    },
+    "selection": {
+      "performance": {
+        "SSIM": null,
+        "MSE": null,
+        "NSME": null,
+        "PSNR": null,
+        "IS": null,
+        "FID": null,
+        "turing_test": null,
+        "downstream_task": {
+          "CLF": {
+            "trained_on_fake": {
+              "accuracy": 0.950,
+              "f1": 0.969,
+              "AUROC": 0.978,
+              "AUPRC": 0.996
+            }
+          }
+        }
+      },
+      "use_cases": [
+        "classification"
+      ],
+      "organ": [
+        "breast",
+        "breasts",
+        "chest"
+      ],
+      "modality": [
+        "MMG",
+        "Mammography",
+        "Mammogram",
+        "full-field digital",
+        "full-field digital MMG",
+        "full-field MMG",
+        "full-field Mammography",
+        "digital Mammography",
+        "digital MMG",
+        "x-ray mammography"
+      ],
+      "vendors": [],
+      "centres": [],
+      "function": [
+        "noise to image",
+        "image generation",
+        "unconditional generation",
+        "data augmentation"
+      ],
+      "condition": [],
+      "dataset": [
+        "BCDR"
+      ],
+      "augmentations": [
+        "horizontal flip",
+        "vertical flip"
+      ],
+      "generates": [
+        "mass",
+        "masses",
+        "mass roi",
+        "mass ROI",
+        "mass images",
+        "mass region of interest",
+        "nodule",
+        "nodule",
+        "nodule roi",
+        "nodule ROI",
+        "nodule images",
+        "nodule region of interest"
+      ],
+      "height": 128,
+      "width": 128,
+      "depth": null,
+      "type": "WGAN-GP",
+      "license": "MIT",
+      "dataset_type": "public",
+      "privacy_preservation": null,
+      "tags": [
+        "Breast",
+        "Mammogram",
+        "Mammography",
+        "Digital Mammography",
+        "Full field Mammography",
+        "Full-field Mammography",
+        "128x128",
+        "128 x 128",
+        "MammoGANs",
+        "Masses",
+        "Nodules"
+      ],
+      "year": "2022"
+    },
+    "description": {
+      "title": "WGAN-GP Model for Mammogram MASS Patch Generation (Trained on BCDR)",
+      "provided_date": "Mar 2022",
+      "trained_date": "Mar 2022",
+      "provided_after_epoch": 10000,
+      "version": "1.0.0",
+      "publication": null,
+      "doi": ["10.48550/arXiv.2203.04961"],
+      "comment": "A wasserstein generative adversarial network with gradient penalty (WGAN-GP) that generates mass patches of mammograms. Pixel dimensions are 128x128. The DCGAN was trained on MMG patches from the BCDR dataset (Lopez et al, 2012). The uploaded ZIP file contains the files 10000.pt (model weight), __init__.py (image generation method and utils), a requirements.txt, and the GAN model architecture (in pytorch) below the /src folder."
+    }
+  },
+  "00007_DCGAN_CT_spine_inpaint": {
     "execution": {
       "package_name": "bone-cement-injection-planning2",
       "package_link": "https://zenodo.org/record/5898666/files/bone-cement-injection-planning2.zip?download=1",
       "model_name": "inpaint_modelCor",
       "extension": ".pt",
       "image_size": [
-        128, 128
+        128,
+        128
       ],
       "dependencies": [
         "dipy",
@@ -550,14 +829,15 @@
         "name": "generate",
         "args": {
           "base": [
-                    "model_file",
-                    "num_samples",
-                    "output_path",
-                    "save_images"          ],
+            "model_file",
+            "num_samples",
+            "output_path",
+            "save_images"
+          ],
           "custom": {
-              "save_intermediate_outputs": "False",
-              "patient_dir": "00005_DCGAN_CT_spine_inpaint/src/data/dataset-verse19test/rawdata/",
-              "fracture": 22
+            "save_intermediate_outputs": "False",
+            "patient_dir": "00005_DCGAN_CT_spine_inpaint/src/data/dataset-verse19test/rawdata/",
+            "fracture": 22
           }
         }
       }
@@ -586,13 +866,12 @@
       "dataset": [
         "https://github.com/anjany/verse"
       ],
-      "augmentations": [
-      ],
+      "augmentations": [],
       "generates": [
         "regions of interest",
         "ROI",
         "CT",
-	       "measures",
+        "measures",
         "inpainted image"
       ],
       "height": 128,
@@ -613,16 +892,16 @@
       "year": "2021"
     },
     "description": {
-        "title": "Patient-specific virtual spine straightening and vertebra inpainting: An automatic framework for osteoplasty plannings",
-        "provided_date": null,
-        "trained_date": null,
-        "provided_after_epoch": null,
-        "version": "0.0.1",
-        "publication": null,
-        "doi": [
-            "10.5281/zenodo.5838222"
-        ],
-        "comment": "BICEPS takes a CT image of a patient with one or more Vertebral Compression Fractures and generates an estimation of the healthy state of the patients spine to enable treatment planning. The uploaded ZIP file contains the model weights,the __init__.py (image generation method and utils), a README.md, and the GAN model architecture (in pytorch) below the /src folder."
+      "title": "Patient-specific virtual spine straightening and vertebra inpainting: An automatic framework for osteoplasty plannings",
+      "provided_date": null,
+      "trained_date": null,
+      "provided_after_epoch": null,
+      "version": "0.0.1",
+      "publication": null,
+      "doi": [
+        "10.5281/zenodo.5838222"
+      ],
+      "comment": "BICEPS takes a CT image of a patient with one or more Vertebral Compression Fractures and generates an estimation of the healthy state of the patients spine to enable treatment planning. The uploaded ZIP file contains the model weights,the __init__.py (image generation method and utils), a README.md, and the GAN model architecture (in pytorch) below the /src folder."
     }
   }
 }
